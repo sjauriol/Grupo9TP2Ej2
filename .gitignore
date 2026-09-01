@@ -1,0 +1,9 @@
+
+# Archivos generados por NetBeans/Java
+**/build/
+**/dist/
+**/nbproject/private/
+*/nbproject/Makefile-.mk
+*/nbproject/Package-.bash
+*.class
+*.log
