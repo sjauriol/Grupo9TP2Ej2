@@ -30,9 +30,13 @@ public class FrmCodigoSecreto extends javax.swing.JFrame {
     private void iniciarJuego() {
         initRandomNumbers();
         inicializarTextos();
+        inicializarContadores();
         
     }
-    
+    private void inicializarContadores(){
+        contadorIntentos = 0;
+        contadorAyudas = 0;
+    }
     private void inicializarTextos() {
         lblMensaje.setText("");
         lblPista.setText("ingrese 3 digitos + ENTER");
