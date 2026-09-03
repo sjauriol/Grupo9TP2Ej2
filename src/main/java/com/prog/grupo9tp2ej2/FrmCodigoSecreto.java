@@ -11,7 +11,7 @@ import java.util.Random;
  * @author usuario
  */
 public class FrmCodigoSecreto extends javax.swing.JFrame {
-    
+
     private int randomNum;
     private char centena, decena, unidad;
     private int contadorIntentos;
@@ -24,28 +24,30 @@ public class FrmCodigoSecreto extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         iniciarJuego();
-        
+
     }
-    
+
     private void iniciarJuego() {
         initRandomNumbers();
         inicializarTextos();
         inicializarContadores();
-        
+
     }
-    private void inicializarContadores(){
+
+    private void inicializarContadores() {
         contadorIntentos = 0;
         contadorAyudas = 0;
     }
+
     private void inicializarTextos() {
         lblMensaje.setText("");
         lblPista.setText("ingrese 3 digitos + ENTER");
     }
-    
+
     private void initRandomNumbers() {
         Random random = new Random();
         int min = 100, max = 999;
-        
+
         randomNum = random.nextInt((max - min) + 1) + min;
         centena = (char) ('0' + (randomNum / 100));
         decena = (char) ('0' + ((randomNum / 10) % 10));
@@ -139,6 +141,11 @@ public class FrmCodigoSecreto extends javax.swing.JFrame {
         txtIntento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtIntentoActionPerformed(evt);
+            }
+        });
+        txtIntento.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtIntentoKeyTyped(evt);
             }
         });
 
@@ -250,6 +257,20 @@ public class FrmCodigoSecreto extends javax.swing.JFrame {
     private void btnReiniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReiniciarActionPerformed
         initRandomNumbers();
     }//GEN-LAST:event_btnReiniciarActionPerformed
+
+    private void txtIntentoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtIntentoKeyTyped
+        javax.swing.SwingUtilities.invokeLater(() -> validarIntentos());
+
+    }//GEN-LAST:event_txtIntentoKeyTyped
+    private void validarIntentos() {
+        String intentoCompleto=txtIntento.getText();
+        if (intentoCompleto.length()!=3 || !intentoCompleto.matches("\\d+")){
+            lblPista.setText("Por favor ingrese 3 digitos");
+            lblMensaje.setText("");
+            return;
+        }
+        lblPista.setText("");
+    }
 
     /**
      * @param args the command line arguments
