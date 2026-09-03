@@ -15,6 +15,7 @@ public class FrmCodigoSecreto extends javax.swing.JFrame {
      */
     public FrmCodigoSecreto() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**
