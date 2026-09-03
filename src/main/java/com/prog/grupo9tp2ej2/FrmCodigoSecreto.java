@@ -11,9 +11,10 @@ import java.util.Random;
  */
 public class FrmCodigoSecreto extends javax.swing.JFrame {
 
-    int randomNum;
-    char centena, decena, unidad;
-    int intentos;
+    private int randomNum;
+    private char centena, decena, unidad;
+    private int intentos;
+    private int contadorIntentos;
 
     /**
      * Creates new form CodigoSecreto
@@ -124,7 +125,6 @@ public class FrmCodigoSecreto extends javax.swing.JFrame {
             }
         });
 
-        btnRevelar.setIcon(new javax.swing.ImageIcon("C:\\Users\\usuario\\Documents\\NetBeansProjects\\Grupo9TP2Ej2\\src\\main\\java\\com\\prog\\grupo9tp2ej2\\ayuda1.png")); // NOI18N
         btnRevelar.setText("Revelar");
         btnRevelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -133,6 +133,11 @@ public class FrmCodigoSecreto extends javax.swing.JFrame {
         });
 
         btnReiniciar.setText("Reiniciar");
+        btnReiniciar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnReiniciarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanelPrincipalLayout = new javax.swing.GroupLayout(jPanelPrincipal);
         jPanelPrincipal.setLayout(jPanelPrincipalLayout);
@@ -224,6 +229,10 @@ public class FrmCodigoSecreto extends javax.swing.JFrame {
     private void btnRevelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRevelarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnRevelarActionPerformed
+
+    private void btnReiniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReiniciarActionPerformed
+        initRandomNumbers();
+    }//GEN-LAST:event_btnReiniciarActionPerformed
 
     /**
      * @param args the command line arguments
