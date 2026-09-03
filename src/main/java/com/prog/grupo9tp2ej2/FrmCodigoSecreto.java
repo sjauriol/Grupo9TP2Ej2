@@ -12,7 +12,7 @@ import java.util.Random;
 public class FrmCodigoSecreto extends javax.swing.JFrame {
 
     int randomNum;
-    char digito1, digito2, digito3;
+    char centena, decena, unidad;
     int intentos;
 
     /**
@@ -29,12 +29,15 @@ public class FrmCodigoSecreto extends javax.swing.JFrame {
         int min = 100, max = 999;
         intentos = 0;
         randomNum = random.nextInt((max - min) + 1) + min;
-        digito1 = (char) ('0' + (randomNum / 100));
-        digito2 = (char) ('0' + ((randomNum / 10) % 10));
-        digito3 = (char) ('0' + (randomNum % 10));
-        jPassword1.setText(String.valueOf(digito1));
-        jPassword2.setText(String.valueOf(digito2));
-        jPassword3.setText(String.valueOf(digito3));
+        centena = (char) ('0' + (randomNum / 100));
+        decena = (char) ('0' + ((randomNum / 10) % 10));
+        unidad = (char) ('0' + (randomNum % 10));
+        jPassword1.setText(String.valueOf(centena));
+        jPassword1.setEchoChar('$');
+        jPassword2.setText(String.valueOf(decena));
+        jPassword2.setEchoChar('$');
+        jPassword3.setText(String.valueOf(unidad));
+        jPassword3.setEchoChar('$');
     }
 
     /**
