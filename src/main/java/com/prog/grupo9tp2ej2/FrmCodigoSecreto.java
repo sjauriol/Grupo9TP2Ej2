@@ -5,16 +5,17 @@
 package com.prog.grupo9tp2ej2;
 
 import java.util.Random;
+
 /**
  *
  * @author usuario
  */
 public class FrmCodigoSecreto extends javax.swing.JFrame {
-
+    
     private int randomNum;
     private char centena, decena, unidad;
-    private int intentos;
     private int contadorIntentos;
+    private int contadorAyudas;
 
     /**
      * Creates new form CodigoSecreto
@@ -22,13 +23,25 @@ public class FrmCodigoSecreto extends javax.swing.JFrame {
     public FrmCodigoSecreto() {
         initComponents();
         setLocationRelativeTo(null);
-        initRandomNumbers();
+        iniciarJuego();
+        
     }
-
+    
+    private void iniciarJuego() {
+        initRandomNumbers();
+        inicializarTextos();
+        
+    }
+    
+    private void inicializarTextos() {
+        lblMensaje.setText("");
+        lblPista.setText("ingrese 3 digitos + ENTER");
+    }
+    
     private void initRandomNumbers() {
         Random random = new Random();
         int min = 100, max = 999;
-        intentos = 0;
+        
         randomNum = random.nextInt((max - min) + 1) + min;
         centena = (char) ('0' + (randomNum / 100));
         decena = (char) ('0' + ((randomNum / 10) % 10));
