@@ -7,3 +7,8 @@
 */nbproject/Package-.bash
 *.class
 *.log
+# Archivos generados por Maven
+*.jar
+*.war
+.mvn/
+target/
