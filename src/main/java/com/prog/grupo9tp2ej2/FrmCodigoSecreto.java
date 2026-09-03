@@ -4,17 +4,36 @@
  */
 package com.prog.grupo9tp2ej2;
 
+import java.util.Random;
 /**
  *
  * @author usuario
  */
 public class FrmCodigoSecreto extends javax.swing.JFrame {
 
+    int randomNum;
+    char digito1, digito2, digito3;
+    int intentos;
+
     /**
      * Creates new form CodigoSecreto
      */
     public FrmCodigoSecreto() {
         initComponents();
+        initRandomNumbers();
+    }
+
+    private void initRandomNumbers() {
+        Random random = new Random();
+        int min = 100, max = 999;
+        intentos = 0;
+        randomNum = random.nextInt((max - min) + 1) + min;
+        digito1 = (char) ('0' + (randomNum / 100));
+        digito2 = (char) ('0' + ((randomNum / 10) % 10));
+        digito3 = (char) ('0' + (randomNum % 10));
+        jPassword1.setText(String.valueOf(digito1));
+        jPassword2.setText(String.valueOf(digito2));
+        jPassword3.setText(String.valueOf(digito3));
     }
 
     /**
